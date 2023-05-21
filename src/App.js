@@ -6,6 +6,7 @@ import Signup from "./Pages/Signup";
 import Account from "./Pages/Account";
 import axios from "axios";
 import { useEffect, useState } from "react";
+import CoinPage from "./Pages/CoinPage";
 
 function App() {
   const [coins, setCoints] = useState([]);
@@ -27,6 +28,9 @@ function App() {
         <Route path="/signin" element={<SignIn />} />
         <Route path="/signup" element={<Signup />} />
         <Route path="/acccount" element={<Account />} />
+        <Route path="/coin/:coinId" element={<CoinPage />}>
+          <Route path=":coinId" />
+        </Route>
       </Routes>
     </div>
   );
