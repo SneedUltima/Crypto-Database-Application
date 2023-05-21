@@ -15,5 +15,5 @@
 }
 
 .rounded-div {
-  @apply rounded-xl shadow-xl px-4 max-w-[1140px] w-full mx-auto;
+  @apply rounded-xl shadow-xl xl:px-8 px-4 xl:max-w-[1600px] max-w-[1140px] w-full mx-auto;
 }
