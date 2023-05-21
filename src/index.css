@@ -10,6 +10,10 @@
   }
 }
 
+:root {
+  @apply bg-crypto-blue-light;
+}
+
 .rounded-div {
   @apply rounded-xl shadow-xl px-4 max-w-[1140px] w-full mx-auto;
 }

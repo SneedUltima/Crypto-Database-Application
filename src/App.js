@@ -20,7 +20,7 @@ function App() {
   }, []);
 
   return (
-    <div className="App bg-crypto-blue-light w-full h-screen ">
+    <div className="App">
       <Navbar />
       <Routes>
         <Route path="/" element={<Home coins={coins} />} />
