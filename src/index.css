@@ -2,6 +2,14 @@
 @tailwind components;
 @tailwind utilities;
 
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&display=swap");
+
+@layer base {
+  body {
+    @apply font-[Montserrat];
+  }
+}
+
 .rounded-div {
-  @apply border border-secondary rounded-xl shadow-xl px-2 max-w-[1140px] w-full mx-auto;
+  @apply rounded-xl shadow-xl px-4 max-w-[1140px] w-full mx-auto;
 }

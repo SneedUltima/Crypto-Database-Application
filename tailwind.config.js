@@ -3,10 +3,12 @@ module.exports = {
   content: ["./src/**/*.{js,jsx,ts,tsx}"],
   theme: {
     colors: {
-      "crypto-green-light": "#01FEC3",
-      "crypto-green-dark": "#249C91",
-      "crypto-green-grey": "#141618",
-      "crypto-green-black": "#090808",
+      "crypto-blue-light": "#18194B",
+      "crypto-purple-light": "#242450",
+      "crypto-purple-button": "#6C61FF",
+      "crypto-grey": "#262626",
+      "crypto-black": "#131212",
+      "crypto-white": "#FEFEFF",
     },
   },
   plugins: [],
