@@ -3,12 +3,13 @@ import axios from "axios";
 import { Sparklines, SparklinesLine } from "react-sparklines";
 import { FaTwitter, FaFacebook, FaGithub } from "react-icons/fa";
 import DOMPurify from "dompurify";
+import { useParams } from "react-router-dom";
 
 const CoinPage = () => {
   const [coin, setCoin] = useState({});
+  const params = useParams();
 
-  const url =
-    "https://api.coingecko.com/api/v3/coins/bitcoin?localization=false&sparkline=true";
+  const url = `https://api.coingecko.com/api/v3/coins/${params.coinId}?localization=false&sparkline=true`;
 
   useEffect(() => {
     axios.get(url).then((response) => {
@@ -132,7 +133,7 @@ const CoinPage = () => {
               ) : null}
             </div>
             <div>
-              <p className=" text-gray-300 text-sm">>Price Change (1y)</p>
+              <p className=" text-gray-300 text-sm">Price Change (1y)</p>
               {coin.market_data ? (
                 <p>{coin.market_data.price_change_percentage_1y.toFixed(2)}%</p>
               ) : null}
@@ -149,13 +150,17 @@ const CoinPage = () => {
 
       <div className="py-4">
         <p className="text-xl font-bold">About {coin.name}</p>
-        <p
-          dangerouslySetInnerHTML={{
-            __html: DOMPurify.sanitize(
-              coin.description ? coin.description.en : ""
-            ),
-          }}
-        ></p>
+        {coin.description ? (
+          <p
+            dangerouslySetInnerHTML={{
+              __html: DOMPurify.sanitize(
+                coin.description ? coin.description.en : ""
+              ),
+            }}
+          ></p>
+        ) : (
+          <p>No Description Available</p>
+        )}
       </div>
     </div>
   );
