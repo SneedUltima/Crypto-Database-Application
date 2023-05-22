@@ -80,21 +80,27 @@ const Navbar = () => {
         }
       >
         <ul className="w-full p-4">
-          <li className="border-b py-6">
+          <li onClick={menuOpen} className="border-b py-6">
             <Link to="/">Home</Link>
           </li>
-          <li className="py-6">
-            <Link to="/">Account</Link>
+          <li onClick={menuOpen} className="py-6">
+            <Link to="/account">Account</Link>
           </li>
         </ul>
         <div className="flex flex-col w-full p-4">
           <Link to="/signin">
-            <button className="w-full my-2 p-3 bg-crypto-white text-crypto-black rounded-2xl shadow-xl">
+            <button
+              onClick={menuOpen}
+              className="w-full my-2 p-3 bg-crypto-white text-crypto-black rounded-2xl shadow-xl"
+            >
               Login
             </button>
           </Link>
           <Link to="/signup">
-            <button className="w-full my-2 p-3 bg-crypto-purple rounded-2xl shadow-xl hover:bg-crypto-purple-light">
+            <button
+              onClick={menuOpen}
+              className="w-full my-2 p-3 bg-crypto-purple rounded-2xl shadow-xl hover:bg-crypto-purple-light"
+            >
               Sign Up
             </button>
           </Link>
