@@ -143,7 +143,7 @@ const CoinPage = () => {
           <div className="flex justify-around p-8 text-crypto-purple-button">
             <FaTwitter />
             <FaFacebook />
-            <FaTwitter />
+            <FaGithub />
           </div>
         </div>
       </div>

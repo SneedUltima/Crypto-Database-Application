@@ -7,6 +7,7 @@ import Account from "./Pages/Account";
 import axios from "axios";
 import { useEffect, useState } from "react";
 import CoinPage from "./Pages/CoinPage";
+import Footer from "./Components/Footer";
 
 function App() {
   const [coins, setCoints] = useState([]);
@@ -32,6 +33,7 @@ function App() {
           <Route path=":coinId" />
         </Route>
       </Routes>
+      <Footer />
     </div>
   );
 }
