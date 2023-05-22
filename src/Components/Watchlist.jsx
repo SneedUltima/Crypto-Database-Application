@@ -1,13 +1,35 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { AiOutlineClose } from "react-icons/ai";
 import { Link } from "react-router-dom";
+import { doc, onSnapshot, updateDoc } from "firebase/firestore";
+import { db } from "../firebase";
+import { UserAuth } from "../Context/AuthContext";
 
 const Watchlist = () => {
+  const { user } = UserAuth();
   const [coins, setCoins] = useState([]);
+
+  useEffect(() => {
+    onSnapshot(doc(db, "users", `${user.email}`), (doc) => {
+      setCoins(doc.data()?.watchList);
+    });
+  }, []);
+
+  const coinPath = doc(db, "users", `${user.email}`);
+  const deleteCoin = async (passedId) => {
+    try {
+      const result = coins.filter((item) => item.id !== passedId);
+      await updateDoc(coinPath, {
+        watchList: result,
+      });
+    } catch (error) {
+      console.log(error.message);
+    }
+  };
 
   return (
     <div className="text-white">
-      {coins.length === 0 ? (
+      {coins?.length === 0 ? (
         <p>
           No coins added to watch list. Please save a coin to add it to your
           watch list.{" "}
@@ -25,7 +47,7 @@ const Watchlist = () => {
             </tr>
           </thead>
           <tbody>
-            {coins.map((coin) => (
+            {coins?.map((coin) => (
               <tr className="h-[60px] overflow-hidden" key={coin.id}>
                 <td>{coin?.rank}</td>
                 <td>
@@ -42,7 +64,10 @@ const Watchlist = () => {
                   </Link>
                 </td>
                 <td className="pl-8">
-                  <AiOutlineClose className=" cursor-pointer" />
+                  <AiOutlineClose
+                    onClick={() => deleteCoin(coin.id)}
+                    className=" cursor-pointer"
+                  />
                 </td>
               </tr>
             ))}
