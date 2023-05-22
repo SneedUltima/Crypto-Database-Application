@@ -36,7 +36,7 @@ const Navbar = () => {
       </Link>
       <div>
         {user?.email ? (
-          <div>
+          <div className="hidden md:block">
             <Link to="/account" className="p-4">
               Account
             </Link>
@@ -87,24 +87,36 @@ const Navbar = () => {
             <Link to="/account">Account</Link>
           </li>
         </ul>
-        <div className="flex flex-col w-full p-4">
-          <Link to="/signin">
+        {!user?.email ? (
+          <div className="flex flex-col w-full p-4">
+            <Link to="/signin">
+              <button
+                onClick={menuOpen}
+                className="w-full my-2 p-3 bg-crypto-white text-crypto-black rounded-2xl shadow-xl"
+              >
+                Login
+              </button>
+            </Link>
+            <Link to="/signup">
+              <button
+                onClick={menuOpen}
+                className="w-full my-2 p-3 bg-crypto-purple rounded-2xl shadow-xl hover:bg-crypto-purple-light"
+              >
+                Sign Up
+              </button>
+            </Link>
+          </div>
+        ) : (
+          <div>
             <button
-              onClick={menuOpen}
-              className="w-full my-2 p-3 bg-crypto-white text-crypto-black rounded-2xl shadow-xl"
+              onClick={handleSignOut}
+              className="px-4 py-1.5 bg-crypto-purple-button rounded-2xl shadow-lg hover:bg-crypto-purple-light
+          border-2 border-crypto-purple-button ease-in-out duration-300 w-[300px] mb-20"
             >
-              Login
+              Sign out
             </button>
-          </Link>
-          <Link to="/signup">
-            <button
-              onClick={menuOpen}
-              className="w-full my-2 p-3 bg-crypto-purple rounded-2xl shadow-xl hover:bg-crypto-purple-light"
-            >
-              Sign Up
-            </button>
-          </Link>
-        </div>
+          </div>
+        )}
       </div>
     </div>
   );

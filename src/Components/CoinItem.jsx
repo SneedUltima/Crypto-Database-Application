@@ -42,7 +42,7 @@ const CoinItem = ({ coin }) => {
         <Link to={`/coin/${coin.id}`}>
           <div className="flex items-center">
             <img
-              className="w-6 mr-2 rounded-full"
+              className="w-6 sm:mr-2 mr-0 rounded-full"
               src={coin.image}
               alt={coin.id}
             />
@@ -63,13 +63,13 @@ const CoinItem = ({ coin }) => {
           </p>
         )}
       </td>
-      <td className="w-[180px] hidden md:table-cell">
+      <td className="w-[180px] hidden lg:table-cell">
         ${coin.total_volume.toLocaleString()}
       </td>
       <td className="w-[180px] hidden md:table-cell">
         ${coin.market_cap.toLocaleString()}
       </td>
-      <td>
+      <td className="hidden sm:table-cell">
         <Sparklines data={coin.sparkline_in_7d.price}>
           <SparklinesLine color="green" />
         </Sparklines>

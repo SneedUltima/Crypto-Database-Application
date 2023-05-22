@@ -66,7 +66,7 @@ const Watchlist = () => {
                 <td className="pl-8">
                   <AiOutlineClose
                     onClick={() => deleteCoin(coin.id)}
-                    className=" cursor-pointer"
+                    className="cursor-pointer text-lg"
                   />
                 </td>
               </tr>
