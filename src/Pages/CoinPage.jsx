@@ -152,6 +152,7 @@ const CoinPage = () => {
         <p className="text-xl font-bold">About {coin.name}</p>
         {coin.description ? (
           <p
+            className="leading-9"
             dangerouslySetInnerHTML={{
               __html: DOMPurify.sanitize(
                 coin.description ? coin.description.en : ""

@@ -1,11 +1,26 @@
 import React, { useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { AiOutlineMenu, AiOutlineClose } from "react-icons/ai";
 import Logo from "../Img/cryptoscapelogo.svg";
+import { UserAuth } from "../Context/AuthContext";
+
 const Navbar = () => {
+  const { user, logout } = UserAuth();
+  const navigate = useNavigate();
   const [nav, setNav] = useState(false);
 
+  console.log(user);
+
   const menuOpen = () => setNav(!nav);
+
+  const handleSignOut = async () => {
+    try {
+      await logout();
+      navigate("/");
+    } catch (error) {
+      console.log(error.message);
+    }
+  };
 
   return (
     <div className="rounded-div bg-crypto-purple-light flex justify-between items-center text-crypto-white h-20 font-bold">
@@ -19,17 +34,34 @@ const Navbar = () => {
           </div>
         </div>
       </Link>
-      <div className="hidden md:block">
-        <Link to="/signin" className="p-4">
-          Login
-        </Link>
-        <Link
-          to="/signup"
-          className="px-5 py-2 bg-crypto-purple-button ml-2 rounded-2xl shadow-lg hover:bg-crypto-purple-light
+      <div>
+        {user?.email ? (
+          <div>
+            <Link to="/account" className="p-4">
+              Account
+            </Link>
+            <button
+              onClick={handleSignOut}
+              className="px-4 py-1.5 bg-crypto-purple-button ml-2 rounded-2xl shadow-lg hover:bg-crypto-purple-light
           border-2 border-crypto-purple-button ease-in-out duration-300"
-        >
-          Sign up
-        </Link>
+            >
+              Sign out
+            </button>
+          </div>
+        ) : (
+          <div className="hidden md:block">
+            <Link to="/signin" className="p-4">
+              Log In
+            </Link>
+            <Link
+              to="/signup"
+              className="px-5 py-2 bg-crypto-purple-button ml-2 rounded-2xl shadow-lg hover:bg-crypto-purple-light
+          border-2 border-crypto-purple-button ease-in-out duration-300"
+            >
+              Sign up
+            </Link>
+          </div>
+        )}
       </div>
       {/* Menu Icon */}
       <div onClick={menuOpen} className="block md:hidden cursor-pointer z-10">

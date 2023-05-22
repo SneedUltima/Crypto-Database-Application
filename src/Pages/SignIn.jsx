@@ -1,19 +1,38 @@
-import React from "react";
+import React, { useState } from "react";
 import { AiFillLock, AiOutlineMail } from "react-icons/ai";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
+import { signIn, UserAuth } from "../Context/AuthContext";
 
 const SignIn = () => {
+  const { signIn } = UserAuth();
+  const navigate = useNavigate();
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const [error, setError] = useState("");
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    setError("");
+    try {
+      await signIn(email, password);
+      navigate("/account");
+    } catch (error) {
+      setError(error.message);
+    }
+  };
+
   return (
     <div>
-      <div className="max-w-[400px] mx-auto min-h-[600px] px-4 py-20 text-white">
+      <div className="max-w-[400px] md:max-w-[600px] mx-auto min-h-[600px] px-4 py-20 text-white">
         <h1 className="text-2xl font-bold">Login</h1>
-        <form>
+        <form onSubmit={handleSubmit}>
           <div className="my-4">
             <label>Email</label>
             <div className="my-2 w-full relative rounded-2xl shadow-xl">
               <input
-                className="w-full p-2 rounded-xl border-none z-0"
+                className="w-full p-2 rounded-xl border-none z-0 text-crypto-black"
                 type="email"
+                onChange={(e) => setEmail(e.target.value)}
               />
               <AiOutlineMail className="absolute right-2 top-3 text-gray-400" />
             </div>
@@ -22,8 +41,9 @@ const SignIn = () => {
             <label>Password</label>
             <div className="my-2 w-full relative rounded-2xl shadow-xl">
               <input
-                className="w-full p-2 rounded-xl border-none z-0"
+                className="w-full p-2 rounded-xl border-none z-0 text-crypto-black"
                 type="password"
+                onChange={(e) => setPassword(e.target.value)}
               />
               <AiFillLock className="absolute right-2 top-3 text-gray-400" />
             </div>
