@@ -4,7 +4,7 @@ import { FaTwitter, FaFacebook, FaGithub } from "react-icons/fa";
 
 const Footer = () => {
   return (
-    <div className="rounded-div bg-crypto-purple-light mt-8 pt-8 text-white">
+    <div className="rounded-div bg-crypto-purple-light mt-8 pt-8 pb-4 text-white">
       <div className="grid md:grid-cols-2">
         <div className="flex justify-evenly w-full md:max-w-[300px]">
           <div>
@@ -43,7 +43,7 @@ const Footer = () => {
                   />
                 </div>
                 <div>
-                  <button className="px-4 py-2 w-full rounded-2xl shadow-xl bg-crypto-purple-button md:w-auto my-2">
+                  <button className="px-4 py-2 w-full rounded-2xl shadow-xl bg-crypto-purple-button md:w-auto my-2 border-2 border-crypto-purple-button hover:bg-crypto-purple-light ease-in-out duration-300">
                     Sign up
                   </button>
                 </div>
