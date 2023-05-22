@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import { AiOutlineMenu, AiOutlineClose } from "react-icons/ai";
-
+import Logo from "../Img/cryptoscapelogo.svg";
 const Navbar = () => {
   const [nav, setNav] = useState(false);
 
@@ -10,7 +10,14 @@ const Navbar = () => {
   return (
     <div className="rounded-div bg-crypto-purple-light flex justify-between items-center text-crypto-white h-20 font-bold">
       <Link to="/">
-        <h1 className="text-2xl font-light ">CryptoScape.</h1>
+        <div className="flex items-center">
+          <div>
+            <img className="w-10 mr-2" src={Logo} alt="logo" />
+          </div>
+          <div>
+            <h1 className="text-2xl font-light ">CryptoScape.</h1>
+          </div>
+        </div>
       </Link>
       <div className="hidden md:block">
         <Link to="/signin" className="p-4">
