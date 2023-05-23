@@ -2,6 +2,9 @@
 
 ## Fully functional React App, styled with Tailwind and with Firebase Authentication
 
+App was developed to gain experience with React features such as Hooks, Context, React-Router-Dom, useParams, as well as 
+Tailwind styling and Firebase Authentication and data storage.
+
 ### Features
 * Application connects to CoinGecko API to present the top ten ranked crypto currencies
 * Database presents metrics such as current price, 24hr volume and market cap
