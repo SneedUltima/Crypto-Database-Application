@@ -5,6 +5,8 @@
 App was developed to gain experience with React features such as Hooks, Context, React-Router-Dom, useParams, as well as 
 Tailwind styling and Firebase Authentication and data storage.
 
+[View Application](https://helpful-dieffenbachia-34da37.netlify.app/)
+
 ### Features
 * Application connects to CoinGecko API to present the top ten ranked crypto currencies
 * Database presents metrics such as current price, 24hr volume and market cap
