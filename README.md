@@ -2,6 +2,13 @@
 
 ## Fully functional React App, styled with Tailwind and with Firebase Authentication
 
+### Features
+* Application connects to CoinGecko API to present the top ten ranked crypto currencies
+* Database presents metrics such as current price, 24hr volume and market cap
+* Application presents trending crypto currencies on CoinGecko
+* User is able to inspect individual crypto currencies for more information
+* User is able to create an account and add coins to unique watchlist
+
 <img src="https://i.ibb.co/dGXXGDK/wadadawdawd.jpg" width="300" height="220"/>
 <img src="https://i.ibb.co/gd4PPpJ/yjytgjygj.jpg" width="300" height="220"/>
 
