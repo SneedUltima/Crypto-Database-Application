@@ -2,7 +2,7 @@
 
 ## Fully functional React App, styled with Tailwind and with Firebase Authentication
 
-<img src="https://i.ibb.co/dGXXGDK/wadadawdawd.jpg" width="250" height="200"/>
+<img src="https://i.ibb.co/dGXXGDK/wadadawdawd.jpg" width="300" height="220"/>
 ...
 ## How to run the application in your browser
 
